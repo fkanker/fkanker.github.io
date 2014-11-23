@@ -1,7 +1,10 @@
-  
+Solutions pour Arduino/Diduino non reconnue
+===========================================
+
 Ce thread vise à faire le point et apporter des solutions pour les cartes Arduino/Diduino non reconnues par le système d'exploitation. Il sera mis à jour si de nouvelles solutions apparaissent.  
   
-**Contexte**  
+Contexte
+--------
   
 Les cartes Arduino sont souvent équipées d'une puce FTDI. Le modèle 232R ayant un grand succès, la contrefaçon s'y est intéressée.  
 FTDI a donc sorti un pilote (version 2.12) sous Windows qui détecte les puces contrefaites, et les "désactive" en reprogrammant le PID (ProductID) de la carte : Concrètement, l'identifiant de la carte sur le port USB est modifié et celle-ci n'est plus reconnue par les pilotes FTDI.  
@@ -27,9 +30,9 @@ Suivant votre système d'exploitation, plusieurs solutions sont disponibles.
   
   
   
-**__**
 
-### **_Vous travaillez exclusivement sous Windows._****__**  
+### Vous travaillez exclusivement sous Windows.
+------------------------------------------------
 La solution la plus simple est d'installer le pilote "manuellement" en gardant le PID à 0x0000\. Cette vidéo décrit la procédure:  
 [https://www.youtube.com/watch?v=SPdSKT6KdF8](https://www.youtube.com/watch?v=SPdSKT6KdF8)   
 La solution fonctionne avec les pilotes FTDI 2.12, mais également avec les 2.10 que vous pouvez télécharger ici:  
@@ -48,9 +51,10 @@ Une autre solution est donc de reprogrammer la puce, désinstaller les pilotes 2
   
   
   
-**__**
 
-### **_Vous travaillez exclusivement sous Linux ou OS X_****__**  
+
+### Vous travaillez exclusivement sous Linux ou OS X
+-----------------------------------------------------
 La solution la plus simple semble être de reprogrammer le PID de la puce FTDI. Le programme ft232r\_prog y arrive très bien.  
   
 **Sous Arch**  
@@ -126,9 +130,10 @@ Patcher le pilote dans le noyau Linux avec le PID 0x0000 et recompiler le noyau.
   
   
   
-**__**
 
-### **_Cas particuliers_****__**  
+
+### Cas particuliers
+--------------------
 **Reprogrammer la puce sous Windows et désinstaller les pilotes 2.12\.**  
   
 Vous pouvez tenter de reprogrammer la puce sous WIndows avec l'outil Mprog de FTDI. Cette vidéo montre le processus : [https://www.youtube.com/watch?v=RZH\_qGautqM](https://www.youtube.com/watch?v=RZH_qGautqM)   
